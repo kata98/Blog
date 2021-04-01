@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/posts/{post}', [HomeController::class, 'show'])->name('post');
+
 Route::get('/loginUser', [UserController::class, 'showLogin'])->name('loginUser');
 Route::get('/registerUser', [UserController::class, 'showRegister'])->name('registerUser');
 Route::post('/register', [UserController::class, 'register'])->name('register');

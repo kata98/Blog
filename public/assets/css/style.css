@@ -80,6 +80,8 @@ p {
     padding-top: 10px;
 }
 
+
+
 /* FOOTER */
 
 footer {
@@ -121,6 +123,12 @@ footer ul.socials li:after {
 
 footer ul.socials li:last-child::after {
     display: none;
+}
+
+/*SINGLE BLOG*/
+
+.blog-content {
+    padding-top: 80px;
 }
 
 /* LOGIN FORM*/
