@@ -6,12 +6,19 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url("/") }}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url("/login") }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url("/register") }}">Register</a>
-                </li>
+                @if(!(session()->has("user")))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url("/loginUser") }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url("/registerUser") }}">Register</a>
+                    </li>
+                @endif
+                @if(session()->has("user"))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url("/logout") }}">Log out</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

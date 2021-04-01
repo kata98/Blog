@@ -12,7 +12,8 @@
                                     <h2>Login here</h2>
                                 </div>
                                 <div class="content">
-                                    <form id="login" action="" method="post">
+                                    <form id="login" action="{{ url('/login') }}" method="post">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>

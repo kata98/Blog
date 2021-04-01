@@ -12,17 +12,18 @@
                                     <h2>Register here</h2>
                                 </div>
                                 <div class="content">
-                                    <form id="register" action="" method="post">
+                                    <form id="register" action="{{ url('/register') }}" method="post">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="first-name" type="text" id="first-name"
+                                                    <input name="first_name" type="text" id="first_name"
                                                            placeholder="Your first name" required="">
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="last-name" type="text" id="last-name"
+                                                    <input name="last_name" type="text" id="last_name"
                                                            placeholder="Your last name" required="">
                                                 </fieldset>
                                             </div>

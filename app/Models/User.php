@@ -2,42 +2,44 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ["first_name", "last_name", "email", "password", 'role_id'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public static function validate($request){
+        $request->validate([
+            'first_name' =>  'required|regex:/(^([a-zA-z]+)(\d+)?$)/',
+            'last_name' => 'required|regex:/(^([a-zA-z]+)(\d+)?$)/',
+            'email' => 'required|email',
+            'password' => 'required|regex:/[\w\W]{8,}/',
+            'role_id'=>'required'
+        ]);
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function doRegister(RegisterRequest $request)
+    {
+        $first_name = $request->input("first_name");
+        $last_name = $request->input("last_name");
+        $email = $request->input("email");
+        $password = $request->input("password");
+
+        $query = DB::table('users');
+        $query=$query ->insert(
+            ["first_name" => $first_name,
+                "last_name" => $last_name,
+                "email" => $email,
+                "password" => md5($password),
+                "role_id" => 2]
+        );
+        return $query;
+
+    }
+
 }
