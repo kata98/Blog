@@ -16,11 +16,15 @@
                         <div class="col-lg-8">
                             <div class="sidebar-right">
                                 <div class="content">
-                                    <h4>{{ $post->title }}</h4>
+                                    <div class="upper-content">
+                                        <h4>{{ $post->title }}</h4>
+                                        @foreach($users as $user)
+                                            <ul class="post-info">
+                                                <li>{{$user->firstName.' '.$user->lastName}}</li>
+                                            </ul>
+                                        @endforeach
+                                    </div>
                                     <p>{{ $post->description }}</p>
-                                    <ul class="post-info">
-                                        <li>{{$post->firstName.' '.$post->lastName}}</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>

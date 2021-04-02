@@ -39,7 +39,18 @@ class User extends Model
                 "role_id" => 2]
         );
         return $query;
+    }
 
+    public function getUsers($post)
+    {
+        $id = $post->id;
+
+        $query=DB::table('users');
+        $query=$query->join("posts", "users.id", "=", "posts.user_id");
+        $query=$query->where("posts.id", $id);
+        $query=$query->select('posts.*', 'users.first_name as firstName', 'users.last_name as lastName');
+
+        return $query->get();
     }
 
 }

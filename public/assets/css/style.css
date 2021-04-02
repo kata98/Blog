@@ -131,6 +131,25 @@ footer ul.socials li:last-child::after {
     padding-top: 80px;
 }
 
+.single-blog .sidebar-right h4 {
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #5A7E3F;
+}
+
+.single-blog p {
+    color: #20232e;
+}
+
+.single-blog .upper-content {
+    padding-bottom: 30px;
+}
+
+.single-blog .upper-content ul li {
+    color: #7a7a7a;;
+}
+
 /* LOGIN FORM*/
 
 .login,
@@ -138,7 +157,8 @@ footer ul.socials li:last-child::after {
     padding-top: 80px;
 }
 
-.sidebar-left h2, .sidebar-right h2{
+.sidebar-left h2,
+.sidebar-right h2 {
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 800;
