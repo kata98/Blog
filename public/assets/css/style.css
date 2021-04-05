@@ -80,7 +80,12 @@ p {
     padding-top: 10px;
 }
 
-
+.description {
+    padding-bottom: 30px;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 13px;
+}
 
 /* FOOTER */
 
@@ -213,4 +218,30 @@ footer ul.socials li:last-child::after {
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
+}
+
+/* FORMA */
+
+.edit,
+.delete {
+    padding-bottom: 10px;
+}
+
+.edit-button,
+.delete-button {
+    display: inline-block;
+    background-color: #41592E;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 12px 10px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: #5A7E3F;
 }

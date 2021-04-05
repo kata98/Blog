@@ -15,6 +15,14 @@
                     </li>
                 @endif
                 @if(session()->has("user"))
+                    @if(!session()->get('user')->IsAdmin)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route("user-page", session()->get('user')->id) }}">My blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('posts.create') }}">Create a blog</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url("/logout") }}">Log out</a>
                     </li>
