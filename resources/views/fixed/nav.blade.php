@@ -23,6 +23,17 @@
                             <a class="nav-link" href="{{ route('posts.create') }}">Create a blog</a>
                         </li>
                     @endif
+                    @if(session()->get('user')->IsAdmin)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url("/users") }}">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Pending blogs</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url("/logout") }}">Log out</a>
                     </li>

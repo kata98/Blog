@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -27,6 +28,8 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 Route::get('/posts/{post}', [HomeController::class, 'show'])->name('post');
 
 Route::get('/user-page/{user}', [PostController::class, 'index'])->name('user-page');
+
+Route::get('/users', [AdminController::class, 'index'])->name('users');
 
 Route::get('/loginUser', [UserController::class, 'showLogin'])->name('loginUser');
 Route::get('/registerUser', [UserController::class, 'showRegister'])->name('registerUser');

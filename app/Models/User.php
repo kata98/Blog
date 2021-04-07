@@ -53,4 +53,12 @@ class User extends Model
         return $query->get();
     }
 
+    public function getAllUsers(){
+        $query=DB::table('users');
+        $query=$query->join('roles', 'roles.id', '=', 'users.role_id');
+        $query=$query->select('users.*', 'roles.name as RoleName', 'roles.id as roleId');
+
+        return $query->get();
+    }
+
 }

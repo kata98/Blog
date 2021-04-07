@@ -245,3 +245,16 @@ footer ul.socials li:last-child::after {
 .delete-button:hover {
     background-color: #5A7E3F;
 }
+
+/* ADMIN USERS TABLE */
+
+.table-body {
+    padding-top: 80px;
+}
+
+.table-body th {
+    color: #41592E;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
