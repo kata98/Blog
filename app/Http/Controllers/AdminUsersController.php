@@ -5,7 +5,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
-class AdminController extends OsnovniController
+class AdminUsersController extends OsnovniController
 {
     public $userModel;
 

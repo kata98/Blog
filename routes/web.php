@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminBlogsController;
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -29,7 +30,9 @@ Route::get('/posts/{post}', [HomeController::class, 'show'])->name('post');
 
 Route::get('/user-page/{user}', [PostController::class, 'index'])->name('user-page');
 
-Route::get('/users', [AdminController::class, 'index'])->name('users');
+Route::get('/users', [AdminUsersController::class, 'index'])->name('users');
+Route::get('/blogs', [AdminBlogsController::class, 'index'])->name('blogs');
+Route::delete('/blogs/{post}', [AdminBlogsController::class, 'destroy'])->name('blogs.destroy');
 
 Route::get('/loginUser', [UserController::class, 'showLogin'])->name('loginUser');
 Route::get('/registerUser', [UserController::class, 'showRegister'])->name('registerUser');

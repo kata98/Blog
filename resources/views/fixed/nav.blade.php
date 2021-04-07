@@ -28,7 +28,7 @@
                             <a class="nav-link" href="{{ url("/users") }}">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Blogs</a>
+                            <a class="nav-link" href="{{ url("/blogs") }}">Blogs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Pending blogs</a>
