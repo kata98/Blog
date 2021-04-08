@@ -32,7 +32,10 @@ Route::get('/user-page/{user}', [PostController::class, 'index'])->name('user-pa
 
 Route::get('/users', [AdminUsersController::class, 'index'])->name('users');
 Route::get('/blogs', [AdminBlogsController::class, 'index'])->name('blogs');
+Route::get('/pending-blogs', [AdminBlogsController::class, 'show'])->name('pending-blogs');
+Route::patch('/blogs/{post}', [AdminBlogsController::class, 'update'])->name('blogs.update');
 Route::delete('/blogs/{post}', [AdminBlogsController::class, 'destroy'])->name('blogs.destroy');
+
 
 Route::get('/loginUser', [UserController::class, 'showLogin'])->name('loginUser');
 Route::get('/registerUser', [UserController::class, 'showRegister'])->name('registerUser');

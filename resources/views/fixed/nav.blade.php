@@ -31,7 +31,7 @@
                             <a class="nav-link" href="{{ url("/blogs") }}">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Pending blogs</a>
+                            <a class="nav-link" href="{{ url("/pending-blogs") }}">Pending blogs</a>
                         </li>
                     @endif
                     <li class="nav-item">

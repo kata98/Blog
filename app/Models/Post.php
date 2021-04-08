@@ -12,7 +12,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "description", "img", 'user_id'];
+    protected $fillable = ["title", "description", "img", 'user_id', "status"];
 
     public static function deleteImage($img)
     {
@@ -30,6 +30,18 @@ class Post extends Model
     {
         $query = DB::table('posts');
         $query = $query->join('users', 'posts.user_id', '=', 'users.id');
+        $query = $query->where('status', '=', '1');
+        $query = $query->select('posts.*', 'users.first_name as firstName', 'users.last_name as lastName');
+
+
+        return $query->paginate(6);
+    }
+
+    public function getAdminPosts()
+    {
+        $query = DB::table('posts');
+        $query = $query->join('users', 'posts.user_id', '=', 'users.id');
+        $query = $query->where('status', '=', '0');
         $query = $query->select('posts.*', 'users.first_name as firstName', 'users.last_name as lastName');
 
 
