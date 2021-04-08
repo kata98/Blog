@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostController extends OsnovniController
 {
@@ -41,7 +42,9 @@ class PostController extends OsnovniController
 
         if ($img->isValid()) {
             $newName = time() . $img->getClientOriginalName();
-            $img->move('assets/images/', $newName);
+            $img = Image::make($img->getRealPath());
+            $img->resize(277, 370);
+            $img->save(public_path('assets/images/'. $newName));
 
             $post = new Post();
             $post->title = $title;

@@ -96,22 +96,22 @@ footer {
     padding: 50px 0px;
 }
 
-footer p{
+footer p {
     color: #ffffff;
 }
 
-footer ul.socials{
+footer ul.socials {
     padding-bottom: 60px;
     margin-bottom: 60px;
-    border-bottom: 1px solid rgba(250,250,250,0.4);
+    border-bottom: 1px solid rgba(250, 250, 250, 0.4);
 }
 
-footer ul.socials a{
+footer ul.socials a {
     text-decoration: none;
     color: #3E3E3E;
 }
 
-footer ul.socials a:hover{
+footer ul.socials a:hover {
     color: #5A7E3F;
 }
 
@@ -187,6 +187,11 @@ footer ul.socials li:last-child::after {
     margin-bottom: 30px;
 }
 
+#image {
+    border: none;
+
+}
+
 .login .login-form button,
 .register .register-form button {
     display: inline-block;
@@ -203,18 +208,18 @@ footer ul.socials li:last-child::after {
 }
 
 .login .login-form button:hover,
-.register .register-form button:hover{
+.register .register-form button:hover {
     background-color: #5A7E3F;
 }
 
 .login .contact-information,
-.register .contact-information{
+.register .contact-information {
     margin-left: 30px;
 }
 
 
 .login .contact-information ul li,
-.register .contact-information ul li{
+.register .contact-information ul li {
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
@@ -258,3 +263,4 @@ footer ul.socials li:last-child::after {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
