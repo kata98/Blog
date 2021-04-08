@@ -4,6 +4,11 @@ ul li a {
     font-weight: 650;
 }
 
+img {
+    width: 277px;
+    height: 370px;
+}
+
 ul {
     padding: 0;
     margin: 0;
@@ -189,7 +194,6 @@ footer ul.socials li:last-child::after {
 
 #image {
     border: none;
-
 }
 
 .login .login-form button,
