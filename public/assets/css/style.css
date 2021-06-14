@@ -4,6 +4,7 @@ ul li a {
     font-weight: 650;
 }
 
+
 img {
     width: 277px;
     height: 370px;
@@ -40,11 +41,11 @@ p {
 .navbar .navbar-brand h2 em {
     font-size: 44px;
     font-style: normal;
-    color: #5A7E3F;
+    color: #5b4744;
 }
 
 .navbar a:hover {
-    color: #5A7E3F;
+    color: #5b4744;
 }
 
 /* CENTRALNI SADRZAJ*/
@@ -65,7 +66,7 @@ p {
 }
 
 .all-blog-posts h4 {
-    color: #5A7E3F;
+    color: #5b4744;
     font-weight: 700;
     font-size: 24px;
     text-transform: capitalize;
@@ -74,7 +75,7 @@ p {
 
 .all-blog-posts a:hover {
     text-decoration: none;
-    color: #41592E;
+    color: #896b66;
 }
 
 .blog-post {
@@ -117,7 +118,7 @@ footer ul.socials a {
 }
 
 footer ul.socials a:hover {
-    color: #5A7E3F;
+    color: #896b66;
 }
 
 footer ul.socials li {
@@ -145,7 +146,7 @@ footer ul.socials li:last-child::after {
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 0.5px;
-    color: #5A7E3F;
+    color: #5b4744;
 }
 
 .single-blog p {
@@ -199,7 +200,7 @@ footer ul.socials li:last-child::after {
 .login .login-form button,
 .register .register-form button {
     display: inline-block;
-    background-color: #41592E;
+    background-color: #896b66;
     color: #fff;
     font-size: 13px;
     font-weight: 500;
@@ -213,7 +214,7 @@ footer ul.socials li:last-child::after {
 
 .login .login-form button:hover,
 .register .register-form button:hover {
-    background-color: #5A7E3F;
+    background-color: #5b4744;
 }
 
 .login .contact-information,
@@ -237,9 +238,11 @@ footer ul.socials li:last-child::after {
 }
 
 .edit-button,
-.delete-button {
+.delete-button,
+.comment-button,
+.search-button{
     display: inline-block;
-    background-color: #41592E;
+    background-color: #896b66;
     color: #fff;
     font-size: 13px;
     font-weight: 500;
@@ -251,8 +254,14 @@ footer ul.socials li:last-child::after {
 }
 
 .edit-button:hover,
-.delete-button:hover {
-    background-color: #5A7E3F;
+.delete-button:hover,
+.comment-button:hover,
+.search-button:hover{
+    background-color: #5b4744;
+}
+
+.searchText{
+    border: none;
 }
 
 /* ADMIN USERS TABLE */
@@ -262,9 +271,42 @@ footer ul.socials li:last-child::after {
 }
 
 .table-body th {
-    color: #41592E;
+    color: #896b66;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
+#comments{
+    padding-top: 50px;
+}
+
+#comments h4{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #20232e;
+}
+
+#comments h3{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #896b66;
+    padding-bottom: 20px;
+}
+
+#comments a{
+    text-decoration: none;
+    color: #20232e;
+}
+
+#comments .content{
+    padding-top: 40px;
+}
+
+#comments .comment{
+    width: 50%;
+}

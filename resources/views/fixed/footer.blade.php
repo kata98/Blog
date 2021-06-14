@@ -5,6 +5,7 @@
                 <ul class="socials">
                     <li><a href="https://github.com/kata98">GitHub</a></li>
                     <li><a href="https://www.linkedin.com/in/katarinaraic98/">Linkedin</a></li>
+                    <li><a href="{{asset('assets/Document.pdf')}}">Documentation</a></li>
                 </ul>
             </div>
             <div class="col-lg-12">

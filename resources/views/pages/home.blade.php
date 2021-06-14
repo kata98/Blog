@@ -2,8 +2,18 @@
 @section('index')
 
     <div class="container">
-        <div class="row">
+
             <div class="all-blog-posts">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="GET" action="{{ route("home") }}">
+                            <div class="form-group" >
+                                <input type="text" name="keyword" class="searchText" placeholder="Type to search...">
+                                <input type="submit" class="search-button" value="Search"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="row">
                     @foreach($posts as $item)
                         <div class="col-lg-4">
@@ -22,7 +32,7 @@
                     @endforeach
                 </div>
             </div>
-        </div>
+
         <div class="row">
             <div class="pagination">
                 {{$posts->links('vendor.pagination.bootstrap-4')}}

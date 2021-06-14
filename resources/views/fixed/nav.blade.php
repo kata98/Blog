@@ -25,19 +25,16 @@
                     @endif
                     @if(session()->get('user')->IsAdmin)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url("/users") }}">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url("/blogs") }}">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url("/pending-blogs") }}">Pending blogs</a>
+                            <a class="nav-link" href="{{ route("users.index") }}">Admin panel</a>
                         </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url("/logout") }}">Log out</a>
                     </li>
                 @endif
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url("/about") }}">About</a>
+                </li>
             </ul>
         </div>
     </div>
