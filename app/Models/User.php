@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UserRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -59,6 +60,25 @@ class User extends Model
         $query=$query->select('users.*', 'roles.name as RoleName', 'roles.id as roleId');
 
         return $query->get();
+    }
+
+    public function doInsert(UserRequest $request){
+
+        $first_name = $request->input("first_name");
+        $last_name = $request->input("last_name");
+        $email = $request->input("email");
+        $password = $request->input("password");
+        $role_id = $request->input("role_id");
+
+        $query = DB::table('users');
+        $query=$query ->insert(
+            ["first_name" => $first_name,
+                "last_name" => $last_name,
+                "email" => $email,
+                "password" => md5($password),
+                "role_id" => $role_id]
+        );
+        return $query;
     }
 
 }
