@@ -51,7 +51,7 @@ class PostController extends OsnovniController
             $post->description = $description;
             $post->img = $newName;
             $post->user_id = $user_id;
-            $post->status=0;
+            $post->status=1;
 
             $result = $post->save();
 

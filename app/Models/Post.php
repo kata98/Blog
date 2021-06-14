@@ -26,24 +26,16 @@ class Post extends Model
         return $exploded[count($exploded) - 1];
     }
 
-    public function getPosts()
+    public function getPosts(Request $request)
     {
         $query = DB::table('posts');
         $query = $query->join('users', 'posts.user_id', '=', 'users.id');
         $query = $query->where('status', '=', '1');
         $query = $query->select('posts.*', 'users.first_name as firstName', 'users.last_name as lastName');
 
-
-        return $query->paginate(6);
-    }
-
-    public function getAdminPosts()
-    {
-        $query = DB::table('posts');
-        $query = $query->join('users', 'posts.user_id', '=', 'users.id');
-        $query = $query->where('status', '=', '0');
-        $query = $query->select('posts.*', 'users.first_name as firstName', 'users.last_name as lastName');
-
+        if($request->has("keyword")){
+            $query=$query->where("posts.title","like","%". $request->get("keyword") ."%");
+        }
 
         return $query->paginate(6);
     }
