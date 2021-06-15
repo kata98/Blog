@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Services\LogCatchs;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class Post extends Model
 
         if($request->has("keyword")){
             $query=$query->where("posts.title","like","%". $request->get("keyword") ."%");
+            LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Search website');
         }
 
         return $query->paginate(6);

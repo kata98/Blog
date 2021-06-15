@@ -45,7 +45,7 @@ class UserController extends OsnovniController
 
             if ($user) {
                 $request->session()->put("user", $user);
-                LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ' Action: Login');
+                LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ', Action: Login');
                 return redirect()->route("home");
             }
 

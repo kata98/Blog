@@ -204,6 +204,26 @@
       </div>
     </div>
     <div class="col-10 table-container">
+{{--        <form action="{{ route("logs") }}" method="get">--}}
+{{--            @csrf--}}
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="container-fluid">--}}
+{{--                        <div class="form-control">--}}
+{{--                            <div class="col-sm-3">--}}
+{{--                                <input type="date" class="form-control" id="from" name="from">--}}
+{{--                            </div>--}}
+{{--                            <div class="col-sm-3">--}}
+{{--                                <input type="date" class="form-control" id="to" name="to">--}}
+{{--                            </div>--}}
+{{--                            <div class="col-sm-3">--}}
+{{--                            <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div><br/>--}}
+{{--        </form>--}}
       @if ($logs === null)
         <div>
           Log file >50M, please download it.

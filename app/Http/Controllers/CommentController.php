@@ -20,7 +20,6 @@ class CommentController extends OsnovniController
         try{
             $query = $this->commentModel->insert( $request, $postId);
             if($query){
-                git
                 return redirect()->back();
             }
         }
