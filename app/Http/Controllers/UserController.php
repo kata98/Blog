@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Services\LogCatchs;
 
 class UserController extends OsnovniController
 {
@@ -44,13 +45,14 @@ class UserController extends OsnovniController
 
             if ($user) {
                 $request->session()->put("user", $user);
+                LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ' Action: Login');
                 return redirect()->route("home");
             }
 
             return redirect()->route("loginUser");
 
         } catch (\Exception $e) {
-            \Log::error($e->getMessage());
+            LogCatchs::writeLog($e->getMessage(), 'Failed to login');
             return redirect()->route("loginUser");
         }
     }
@@ -59,15 +61,18 @@ class UserController extends OsnovniController
         try{
             $query = $this->userModel->doRegister($request);
             if($query){
+                LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Register');
                 return redirect()->route("loginUser");
             }
         }
         catch(\PDOException $ex){
+            LogCatchs::writeLog($ex->getMessage(), 'Failed to register');
             return $ex->getMessage();
         }
     }
 
     public function logout(Request $request) {
+        LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Logout');
         $request->session()->remove("user");
         return redirect()->route("home");
     }

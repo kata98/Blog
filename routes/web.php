@@ -27,6 +27,8 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::resource('/users', AdminController::class);
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('logs');
+
 Route::resource('/admin', AdminPostsController::class);
 
 Route::resource('/admin/store', AdminPostsController::class);

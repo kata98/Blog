@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Http\Services\LogCatchs;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -55,11 +56,13 @@ class PostController extends OsnovniController
 
             $result = $post->save();
 
-            if ($result)
+            if ($result) {
+                LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Add post');
                 return redirect()->route('home');
-            else
+            }
+            else {
                 return redirect()->route('posts.create');
-
+            }
         } else {
             return response(['message' => 'Data is Invalid'], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
@@ -86,9 +89,11 @@ class PostController extends OsnovniController
 
             DB::commit();
 
+            LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Update post');
             return redirect()->route('home', $post->id)->with('success', 'Post edited successfully!');
         } catch (Exception $e) {
             DB::rollBack();
+            LogCatchs::writeLog($e->getMessage(), 'Failed to update post');
             return redirect()->route('posts.edit', $post->id)->with('errorMessage', 'An error occurred!');
         }
     }
@@ -96,6 +101,7 @@ class PostController extends OsnovniController
     public function destroy(Post $post)
     {
         $post->delete();
+        LogCatchs::writeLogSuccess('User: ' . session('user')->first_name . ',  Action: Delete post');
         return redirect()->route('home')->with('success', 'Post deleted successfully!');
 
     }
